@@ -1,0 +1,8 @@
+# Id da Assinatura (Microsoft Azure)
+subscription_id = "00000000-0000-0000-0000-000000000000"
+
+# Localização da Conta de Armazenamento
+location        = "brazilsouth"
+
+# Nome do Projeto dentro do Azure
+project_name    = "sitestudo"
