@@ -1,0 +1,34 @@
+# Plugins baixados pelo terraform init
+.terraform/
+
+# State (pode conter segredos)
+*.tfstate
+*.tfstate.*
+
+# Variáveis com valores do ambiente
+*.tfvars
+*.tfvars.json
+!terraform.tfvars.example
+
+# Planos salvos
+*.tfplan
+tfplan
+
+# Logs de falha
+crash.log
+crash.*.log
+
+# Overrides locais
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Configuração do CLI
+.terraformrc
+terraform.rc
+
+# Segredos em geral
+.env
+*.pem
+*.key
