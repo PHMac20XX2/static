@@ -1,13 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>site estático</title>
-    <link rel="stylesheet" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedro Macedo | Portfólio DevOps</title>
+  <meta name="description" content="Portfólio de estudos em DevOps: Terraform, Azure e automação.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1> Funcionando </h1>
-    <p> Primeiro site estático criado com Terraform + Azure</p>
+  <header class="topo">
+    <a class="marca" href="#inicio">Seu Nome</a>
+    <nav aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-texto">
+        <h1>Aprendendo a tratar infraestrutura como código.</h1>
+        <p>Sou Seu Nome, estudante de DevOps. Construo e documento projetos com Terraform e Azure para entender como a infraestrutura é criada, versionada e destruída com segurança.</p>
+        <p class="acoes">
+          <a class="botao" href="#projetos">Ver projetos</a>
+          <a class="botao-sec" href="#contato">Entrar em contato</a>
+        </p>
+      </div>
+
+      <figure class="plan">
+        <figcaption>Este site é publicado assim:</figcaption>
+<pre><code><span class="mut">$ terraform apply</span>
+
+<span class="add">+ azurerm_resource_group.rg</span>
+<span class="add">+ azurerm_storage_account.site</span>
+<span class="add">+ azurerm_storage_account_static_website.site</span>
+<span class="add">+ azurerm_storage_blob.arquivos["index.html"]</span>
+
+<span class="mut">Apply complete! Resources: 4 added.</span></code></pre>
+      </figure>
+    </section>
+
+    <section id="sobre">
+      <h2>Sobre</h2>
+      <p>Estou migrando para a área de DevOps e estudo na prática: cada conceito vira um projeto pequeno, com código no GitHub e uma explicação do porquê das decisões.</p>
+      <p>Meu foco atual é nuvem (Azure), infraestrutura como código e automação de entregas.</p>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <ul class="lista">
+        <li>
+          <h3>Site estático com Terraform + Azure</h3>
+          <p>Storage Account com site estático, publicada por código. Inclui variáveis, outputs, .gitignore para proteger o state e ciclo plan/apply/destroy.</p>
+          <p class="tags">Terraform, Azure Storage, Git</p>
+          <a href="https://github.com/seu-usuario/seu-repositorio">Ver no GitHub</a>
+        </li>
+        <li>
+          <h3>Próximo: pipeline no GitHub Actions</h3>
+          <p>Rodar terraform plan em cada Pull Request e apply após o merge, com credenciais guardadas em Secrets.</p>
+          <p class="tags">GitHub Actions, CI/CD</p>
+          <span class="status">Em estudo</span>
+        </li>
+        <li>
+          <h3>Próximo: state remoto e módulos</h3>
+          <p>Guardar o state em uma Storage Account e transformar o código em módulo reutilizável.</p>
+          <p class="tags">Terraform, Backend remoto</p>
+          <span class="status">Em estudo</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <dl class="skills">
+        <dt>Em uso</dt>
+        <dd>Terraform, Azure CLI, Azure Storage, Git e GitHub</dd>
+        <dt>Estudando</dt>
+        <dd>GitHub Actions, Azure Front Door e CDN, módulos Terraform</dd>
+        <dt>Próximos passos</dt>
+        <dd>Docker, Kubernetes, monitoramento</dd>
+      </dl>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Troque estes links pelos seus:</p>
+      <ul class="contatos">
+        <li><a href="https://github.com/seu-usuario">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/seu-usuario">LinkedIn</a></li>
+        <li><a href="mailto:seu@email.com">seu@email.com</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <p>Feito com HTML e CSS, publicado com Terraform na Azure.</p>
+  </footer>
 </body>
 </html>

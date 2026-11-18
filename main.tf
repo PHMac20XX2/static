@@ -19,20 +19,35 @@ resource "azurerm_storage_account" "site" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
+}
 
-  static_website {
-    index_document     = "index.html"
-    error_404_document = "index.html"
+resource "azurerm_storage_account_static_website" "site" {
+  storage_account_id = azurerm_storage_account.site.id
+  index_document     = "index.html"
+  error_404_document = "404.html"
+}
+
+locals {
+  tipos_mime = {
+    html = "text/html"
+    css  = "text/css"
+    js   = "application/javascript"
+    png  = "image/png"
+    jpg  = "image/jpeg"
+    svg  = "image/svg+xml"
   }
 }
 
-# 4) Upload do index.html
-resource "azurerm_storage_blob" "index" {
-  name                   = "index.html"
+resource "azurerm_storage_blob" "arquivos" {
+  for_each = fileset("${path.module}/site", "**")
+
+  name                   = each.value
   storage_account_name   = azurerm_storage_account.site.name
   storage_container_name = "$web"
   type                   = "Block"
-  content_type           = "text/html"
-  source                 = "${path.module}/site/index.html"
-  content_md5            = filemd5("${path.module}/site/index.html")
+  source                 = "${path.module}/site/${each.value}"
+  content_md5            = filemd5("${path.module}/site/${each.value}")
+  content_type           = lookup(local.tipos_mime, reverse(split(".", each.value))[0], "application/octet-stream")
+
+  depends_on = [azurerm_storage_account_static_website.site]
 }
